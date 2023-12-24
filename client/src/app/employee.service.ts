@@ -6,8 +6,13 @@ import { Employee } from './employee';
 @Injectable({
   providedIn: 'root'
 })
+
 export class EmployeeService {
-  private url = 'http://localhost:5200';
+  // Replace this URL with the URL of your Node.js server from Cloud Run when deployed.
+  private url = 'https://mean-nodejs-server-sip2i7aria-el.a.run.app';
+
+  // For local development use the following URL:
+  // private url = 'http://localhost:5200';
   private employees$: Subject<Employee[]> = new Subject();
 
   constructor(private httpClient: HttpClient) { }
