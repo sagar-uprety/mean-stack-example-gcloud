@@ -5,6 +5,14 @@ import { collections } from "./database";
 export const employeeRouter = express.Router();
 employeeRouter.use(express.json());
 
+employeeRouter.get("/test", async (_req, res) => {
+    try {
+        res.status(200).send("Hello from test route!");
+    } catch (error) {
+        res.status(500).send(error.message);
+    }
+});
+
 employeeRouter.get("/", async (_req, res) => {
     try {
         const employees = await collections.employees.find({}).toArray();
